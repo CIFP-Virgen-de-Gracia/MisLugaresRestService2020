@@ -19,6 +19,9 @@ public class LugaresRESTController {
     @Autowired
     private LugaresDAO ld;
 
+    // Documentacion
+    //http://localhost:8080/swagger-ui.html
+
     /**
      * Metodo de test para
      * GET: http://localhost:8080/test
