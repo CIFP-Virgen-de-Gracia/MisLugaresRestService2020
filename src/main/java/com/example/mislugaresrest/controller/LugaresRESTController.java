@@ -25,6 +25,7 @@ public class LugaresRESTController {
     /**
      * Metodo de test para
      * GET: http://localhost:8080/test
+     *
      * @return
      */
     @RequestMapping(value = "test", method = RequestMethod.GET)
@@ -70,6 +71,7 @@ public class LugaresRESTController {
     /**
      * Crea un nuevo lugar. Protocolo POST
      * POST: http://localhost:8080/lugares
+     *
      * @param lugar Lugar a crear mendiante JSON
      * @return Lugar creado si lo consigue
      */
@@ -130,7 +132,6 @@ public class LugaresRESTController {
             return ResponseEntity.noContent().build();
         }
     }
-
 
 
 }

@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "403a0e8f-89b8-4d63-9019-ff8f9ce99379",
+		"name": "Rest Lugares",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/lugares",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lugares"
+					]
+				},
+				"description": "Lista todos los lugares"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/lugares/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lugares",
+						"7"
+					]
+				},
+				"description": "Ñista un lugar por ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Lugar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Prueba POST\",\n    \"tipo\":\"Ciudad\",\n    \"fecha\":\"27/12/2019\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/lugares",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lugares"
+					]
+				},
+				"description": "Crea un lugar a partir de un json"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Lugar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/lugares/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lugares",
+						"8"
+					]
+				},
+				"description": "Borra un lugar en base a su ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Lugar",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 9,\n    \"nombre\": \"Prueba UPDATE\",\n    \"tipo\": \"Ciudad\",\n    \"fecha\": \"27/12/2019\",\n    \"latitud\": 38.9999,\n    \"longitud\": -9.9999,\n    \"imagen\": \"prueba imagen\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/lugares/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lugares",
+						"9"
+					]
+				},
+				"description": "Actualiza un lugar en base a su id mediante datos en json"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MisLugaresRestApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(MisLugaresRestApplication.class, args);
-	}
+	// Inicia el explorador y escucha
+    public static void main(String[] args) {
+        SpringApplication.run(MisLugaresRestApplication.class, args);
+    }
 
 }

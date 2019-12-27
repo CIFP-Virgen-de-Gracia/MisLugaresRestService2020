@@ -35,7 +35,7 @@ public class Lugar {
     @Column(name = "longitud")
     private Float longitud;
 
-    //columna imagen
+    //columna imagen. LA ponerle Lob almacena el tipo de dato más largo, en este caso LongTEX y Blob son similares
     @Lob
     @Column(name = "imagen")
     private String imagen;
