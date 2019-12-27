@@ -5,10 +5,7 @@ import com.example.mislugaresrest.dao.LugaresDAO;
 import com.example.mislugaresrest.model.Lugar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -66,5 +63,43 @@ public class LugaresRESTController {
             return ResponseEntity.noContent().build();
         }
     }
+
+    /**
+     * Crea un nuevo lugar. Protocolo POST
+     * POST: http://localhost:8080/lugares
+     * @param lugar Lugar a crear mendiante JSON
+     * @return Lugar creado si lo consigue
+     */
+    @RequestMapping(value = "lugares", method = RequestMethod.POST)
+    public ResponseEntity<Lugar> create(@RequestBody Lugar lugar) {
+        // Creamos un nuevo lugar a partir de los datos una vez insertado
+        Lugar l = ld.save(lugar);
+        //devolvemos el nuevo producto
+        return ResponseEntity.ok(l);
+    }
+
+    /**
+     * Borra un lugar de la base de datos. Protocolo DELETE
+     * DELETE: http://localhost:8080/lugares/{id}
+     *
+     * @param id, id del lugar a eliminar
+     * @return
+     */
+    @RequestMapping(value = "lugares/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Lugar> delete(@PathVariable("id") Long id) {
+        // Buscamos el lugar por id
+        Optional<Lugar> ol = ld.findById(id);
+        // si existe lo borramos y devolvemos
+        if (ol.isPresent()) {
+            // Le pasamos los datos
+            Lugar p = ol.get();
+            ld.deleteById(id);
+            return ResponseEntity.ok(p);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+
 
 }
