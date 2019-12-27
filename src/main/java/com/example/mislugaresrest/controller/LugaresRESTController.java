@@ -100,6 +100,34 @@ public class LugaresRESTController {
         }
     }
 
+    /**
+     * Actualiza un lugar de la base de datos. Protocolo PUT
+     * PUT: http://localhost:8080/lugares/{id}
+     *
+     * @param lugar Lugar a actualizar
+     * @return Lugar actualizado
+     */
+    @RequestMapping(value = "lugares/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Lugar> update(@PathVariable("id") Long id, @RequestBody Lugar lugar) {
+        // Buscamos el lugar por id
+        Optional<Lugar> op = ld.findById(id);
+        // Devolvemos el lugar si existe.
+        if (op.isPresent()) {
+            // Le pasamos los datos
+            Lugar l = op.get();
+            l.setNombre(lugar.getNombre());
+            l.setTipo(lugar.getTipo());
+            l.setFecha(lugar.getFecha());
+            l.setLatitud(lugar.getLatitud());
+            l.setLongitud(lugar.getLongitud());
+            l.setImagen(lugar.getImagen());
+            ld.save(l);
+            return ResponseEntity.ok(l);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
+    }
+
 
 
 }
